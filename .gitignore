@@ -1,24 +1,170 @@
-# Logs
-logs
+# 💻 ОС и системные файлы
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
 *.log
+*.lock
+*.seed
+*.pid
+*.seed
+*.old
+*.orig
+*.rej
+*.sublime-project
+*.sublime-workspace
+
+# 🏗 Сборочные и временные файлы
+dist/
+build/
+out/
+coverage/
+*.cache
+.npm/
+.yarn/
+.pnp*
+.pnpm-debug.log
+
+# 📦 Node.js / npm / Yarn
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+.nvmrc
+.npmrc
+.yarnrc
+.pnp.js
+.pnp.loader.mjs
 
-node_modules
-dist
-dist-ssr
-*.local
+# 🐳 Docker
+docker-compose.override.yml
+docker-compose.debug.yml
+docker-compose.production.yml
+.dockerignore
+/.docker/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
+# 🏗 TypeScript
+*.tsbuildinfo
+*.tscache
+*.rpt2_cache/
+*.rts2_cache_cjs/
+*.rts2_cache_es/
+
+# 🎨 Frontend / React / Vite / Next.js
+.next/
+.vercel/
+.netlify/
+.vite/
+.vitepress/
+.storybook/
+.nuxt/
+out/
+.cache/
+eslintcache
+stylelintcache
+postcss-cache/
+webpack-stats.json
+.webpack/
+rollup.cache
+.svelte-kit/
+.svelte/
+astro/
+.cache/
+__sapper__/
+.sapper/
+
+# 🔧 IDE / Редакторы кода
+.vscode/
+.idea/
+*.iml
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.sublime-workspace
+*.sublime-project
+
+# 🔥 Git / CI/CD
+.git/
+.gitignore
+.gitmodules
+.gitattributes
+.gitkeep
+*.orig
+*.rej
+*.patch
+*.diff
+
+# 📜 Логи и отладка
+*.log
+*.lock
+logs/
+*.debug
+*.profile
+*.test_results
+*.history
+*.trace
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 🛢️ Базы данных и кеши
+*.sqlite
+*.sqlite3
+*.db
+*.mdb
+*.accdb
+*.pdb
+*.psql
+*.dmp
+*.ldb
+*.pdb
+*.sql
+*.bak
+*.log
+/mongo-data/
+.mongodb/
+postgres-data/
+
+# 🔑 Секретные файлы и токены
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*.local
+*.pem
+*.crt
+*.key
+*.p12
+*.pfx
+*.cert
+*.jks
+*.keystore
+*.gpg
+*.asc
+*.pgp
+*.json.key
+*.secret
+*.config.json
+
+# 🖼️ Картинки и медиа, которые не должны быть в Git
+*.psd
+*.ai
+*.sketch
+*.xcf
+*.kra
+*.blend1
+*.blend2
+*.tmp
+*.raw
+
+# 📸 Скриншоты и временные файлы
+screenshots/
+__snapshots__/
+__screenshots__/
