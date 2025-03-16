@@ -16,5 +16,5 @@ axiosInstance.interceptors.request.use((config) => {
 });
 
 export default axiosInstance;
-// 80/30
-// 70/30
+// становая - 80 кг/30
+// жим штанги - 70/30

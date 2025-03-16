@@ -1,0 +1,112 @@
+/* Стилизация кнопок в календаре */
+
+.fc-today-button.fc-button.fc-button-primary {
+    background-color: white;
+    color: black; /* Белый текст */
+    border-radius: 8px;
+    padding: 4px 16px;
+    opacity: 1;
+    border: 1px solid rgb(1, 1, 1, 0.1) !important;
+}
+
+.fc-toolbar .fc-toolbar-chunk .fc-button-group button {
+    background-color: white;
+    color: black; /* Белый текст */
+    border-radius: 5px;
+    padding: 4px 16px;
+    border: none;
+    padding: 0px 2px !important;
+}
+.fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
+    margin-left: 8px !important;
+}
+
+.fc-button:hover {
+    background-color: #45a049;
+}
+
+.fc-daygrid-day-number {
+    color: #333; /* Цвет числа дня */
+}
+
+.fc-toolbar-title {
+    font-size: 1.2rem; /* Увеличенный шрифт для заголовка */
+}
+
+/* Убираем бордеры у всех элементов */
+.fc * {
+    border: none !important;
+}
+
+/* Убираем бордеры у ячеек таблицы */
+.fc-daygrid-day-frame,
+.fc-col-header-cell,
+.fc-daygrid-day-top,
+.fc-daygrid-day-events {
+    border: none !important;
+}
+
+/* Убираем бордеры у дней */
+.fc-daygrid-day,
+.fc-col-header-cell,
+.fc-daygrid-day-bg {
+    border: none !important;
+}
+
+/* Убираем бордеры у всех внешних блоков календаря */
+.fc-view-harness,
+.fc-scrollgrid,
+.fc-scrollgrid-section {
+    border: none !important;
+}
+
+/* Убираем бордеры у блоков с датами */
+.fc-daygrid-day-number,
+.fc-col-header-cell-cushion {
+    border: none !important;
+    padding-bottom: 4px !important;
+}
+
+.fc-col-header {
+    /* border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;  */
+    border-radius: 8px !important;
+    overflow: hidden !important; /* Чтобы скругление работало корректно */
+    border-collapse: collapse;
+    margin-bottom: 12px !important;
+    margin-top: 4px !important;
+    background: #fafafa !important;
+}
+/* Обеспечиваем, что бордеры будут установлены для всех ячеек заголовков */
+.fc-col-header-cell {
+    /* border-bottom: 1px solid rgb(1, 1, 1, 0.1) !important; */
+}
+
+.fc-col-header-cell-cushion {
+    font-weight: 500 !important;
+}
+.fc-daygrid-day-number {
+    font-weight: 500 !important;
+}
+
+/* Для всей строки заголовка (если нужно) */
+/* .fc-col-header tr {
+    border: 1px solid red !important;
+} */
+
+/* Добавляем отступы внутри ячеек календаря */
+.fc-day {
+    padding: 4px 12px !important; /* Добавляем внутренние отступы */
+    border-radius: 12px !important;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 8px !important;
+}
+
+.fc .fc-toolbar-title {
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 1.5em !important;
+    font-weight: 400 !important;
+    margin: 0px;
+}

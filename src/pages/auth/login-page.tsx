@@ -1,5 +1,3 @@
-import { GalleryVerticalEnd } from "lucide-react";
-
 import { LoginForm } from "@/features/auth/login-form";
 import { Toaster } from "@/shared/shadcn-ui/components/ui/sonner";
 
@@ -9,10 +7,10 @@ export default function LoginPage() {
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <a href="#" className="flex items-center gap-2 font-medium">
-            <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
+            {/* <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <GalleryVerticalEnd className="size-4" />
-            </div>
-            Acme Inc.
+            </div> */}
+            Titan Forge.
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
