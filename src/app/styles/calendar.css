@@ -75,7 +75,7 @@
     border-collapse: collapse;
     margin-bottom: 12px !important;
     margin-top: 4px !important;
-    background: #fafafa !important;
+    background: #f5f5f5 !important;
 }
 /* Обеспечиваем, что бордеры будут установлены для всех ячеек заголовков */
 .fc-col-header-cell {
@@ -109,4 +109,8 @@
     font-size: 1.5em !important;
     font-weight: 400 !important;
     margin: 0px;
+}
+
+.fc-header-toolbar {
+    display: none !important;
 }

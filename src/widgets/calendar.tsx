@@ -8,35 +8,35 @@ import { useEffect } from "react";
 const events = [
   {
     id: "1",
-    title: "Тренировка",
+    title: "Тренировка 1",
     start: new Date(new Date().setDate(new Date().getDate() + 1)),
     color: "green",
     description: "Кардио и силовая нагрузка",
   },
   {
     id: "3",
-    title: "Встреча с командой, и тут например очень большое, длинной название",
+    title: "Тренировка 12",
     start: new Date(new Date().setDate(new Date().getDate() + 5)), // Через 2 дня
     backgroundColor: "blue",
     textColor: "white",
   },
   {
     id: "2",
-    title: "Встреча с командой",
+    title: "Тренировка 5",
     start: new Date(new Date().setDate(new Date().getDate() + 5)), // Через 2 дня
     backgroundColor: "blue",
     textColor: "white",
   },
   {
     id: "4",
-    title: "Встреча с командой, и тут например очень большое, длинной название",
+    title: "Тренировка 3",
     start: new Date(new Date().setDate(new Date().getDate() + 5)), // Через 2 дня
     backgroundColor: "blue",
     textColor: "white",
   },
   {
     id: "5",
-    title: "Встреча с командой, и тут например очень большое, длинной название",
+    title: "Тренировка 4",
     start: new Date(new Date().setDate(new Date().getDate() + 5)), // Через 2 дня
     backgroundColor: "blue",
     textColor: "white",
@@ -61,6 +61,9 @@ export default function Calendar() {
         initialView="dayGridMonth"
         locale={ruLocale}
         height="80vh"
+        headerToolbar={false}
+        // здесь можно в состоянии хранить булево значение и спрашивать скрывать панель или нет
+        // {showHeader ? {} : false}
         // hiddenDays={[0, 6]}
         events={events}
         eventContent={(arg) => (
