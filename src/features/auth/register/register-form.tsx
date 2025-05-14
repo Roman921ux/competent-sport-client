@@ -1,43 +1,20 @@
-import { useAuthContext } from "@/app/providers/auth-context-provider";
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/shadcn-ui/components/ui/button";
 import { Input } from "@/shared/shadcn-ui/components/ui/input";
 import { Label } from "@/shared/shadcn-ui/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
-import { ChangeEvent, FormEvent, useState } from "react";
-import { toast } from "sonner";
+import { useState } from "react";
+import useRegister from "./use-register";
 
-type FormData = {
-  email: string;
-  password: string;
-};
-
-export function LoginForm({
+export function RegisterForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
-  const authContext = useAuthContext();
-  const [formData, setFormData] = useState<FormData>({
-    email: "",
-    password: "",
-  });
+  const { formData, handleChange, handleSubmit } = useRegister();
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
-  };
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    authContext
-      ?.logIn(formData)
-      .then(() => toast.success("Авторизация прошла успешно"))
-      .catch(() => toast.warning("Ошибка при Авторизация"));
   };
 
   return (
@@ -47,12 +24,24 @@ export function LoginForm({
       {...props}
     >
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold">Вход в аккаунт</h1>
+        <h1 className="text-2xl font-bold">Создай свой аккаунт</h1>
         <p className="text-balance text-sm text-muted-foreground">
-          Введи свою почту и пароль, чтобы войти
+          Введи свою почту и придумай пароль
         </p>
       </div>
       <div className="grid gap-6">
+        <div className="grid gap-2">
+          <Label htmlFor="name">Имя</Label>
+          <Input
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            type="text"
+            placeholder="Иван Резен"
+            required
+          />
+        </div>
         <div className="grid gap-2">
           <Label htmlFor="email">Почта</Label>
           <Input
@@ -98,13 +87,13 @@ export function LoginForm({
         </div>
 
         <Button type="submit" className="w-full">
-          Войти
+          Зарегистрироваться
         </Button>
       </div>
       <div className="text-center text-sm">
-        Еще не регистрировались?{" "}
-        <a href="/register" className="underline underline-offset-4">
-          Создать аккаунт{" "}
+        Уже есть аккаунт?{" "}
+        <a href="/login" className="underline underline-offset-4">
+          Войти{" "}
         </a>
       </div>
     </form>

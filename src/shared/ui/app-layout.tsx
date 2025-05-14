@@ -1,12 +1,4 @@
 import { AppSidebar } from "./app-sidebar";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/shared/shadcn-ui/components/ui/breadcrumb";
 import { Separator } from "@/shared/shadcn-ui/components/ui/separator";
 import {
   SidebarInset,
@@ -27,7 +19,7 @@ export default function AppLayout() {
           <div className="flex items-center gap-2 px-3">
             <SidebarTrigger />
             <Separator orientation="vertical" className="mr-2 h-4" />
-            <Breadcrumb>
+            {/* <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
                   <BreadcrumbLink href="#">
@@ -39,13 +31,13 @@ export default function AppLayout() {
                   <BreadcrumbPage>Data Fetching</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
-            </Breadcrumb>
+            </Breadcrumb> */}
           </div>
           <Button className="mr-4" onClick={() => authContext?.logOut()}>
             Выйти
           </Button>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4">
+        <div className="p-8">
           <Outlet />
         </div>
       </SidebarInset>

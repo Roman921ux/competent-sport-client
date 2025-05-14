@@ -18,9 +18,11 @@ type RegisterData = {
 };
 type LoginDataDto = TUserDto & {
   token: string;
+  role: "basic" | "admin";
 };
 type RegisterDataDto = TUserDto & {
   token: string;
+  role: "basic" | "admin";
 };
 
 interface AuthContextProps {
@@ -28,6 +30,7 @@ interface AuthContextProps {
   logIn: (data: LoginData) => Promise<LoginDataDto>;
   logOut: () => void;
   logUp: (data: RegisterData) => Promise<RegisterDataDto>;
+  userRole: "basic" | "admin" | null;
 }
 
 const AuthContext = createContext<AuthContextProps | null>(null);
@@ -37,6 +40,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
   const redirectPath = location.state?.path || "/";
 
+  const [userRole, setUserRole] = useLocalStorage<"basic" | "admin" | null>(
+    "userRole",
+    null,
+  );
   const [token, setToken] = useLocalStorage<string | null>("token", null);
 
   const logIn = async (data: LoginData): Promise<LoginDataDto> => {
@@ -44,6 +51,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const response = await axiosInstance.post("/auth/login", data);
       console.log("loginRequest", response.data);
       setToken(response.data.token);
+      setUserRole(response.data.role);
 
       navigate(redirectPath, { replace: true });
       return response.data;
@@ -58,6 +66,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const response = await axiosInstance.post("/auth/register", data);
       console.log("registerCompanyRequest", response.data);
       setToken(response.data.token);
+      setUserRole(response.data.role);
       navigate("/login");
 
       return response.data;
@@ -75,7 +84,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ token, logIn, logUp, logOut }}>
+    <AuthContext.Provider value={{ token, logIn, logUp, logOut, userRole }}>
       {children}
     </AuthContext.Provider>
   );

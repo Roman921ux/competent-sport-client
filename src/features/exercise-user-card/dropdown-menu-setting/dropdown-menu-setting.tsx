@@ -8,13 +8,25 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/shadcn-ui/components/ui/dropdown-menu";
 import { EllipsisVertical } from "lucide-react";
+import useSettingCard from "./use-setting-card";
 
-export default function DropdownMenuSetting() {
+export default function DropdownMenuSetting({
+  workoutId,
+  exerciseId,
+}: {
+  workoutId: string;
+  exerciseId: string;
+}) {
+  const { removeExerciseMutation } = useSettingCard({ workoutId });
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Button size="icon" variant="outline">
-          <EllipsisVertical className="w-4 h-4 shrink-0" />
+        <Button
+          size="icon"
+          variant="ghost"
+          className="hover:cursor-pointer rounded-2xl"
+        >
+          <EllipsisVertical className="w-12 h-12 shrink-0" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
@@ -23,7 +35,13 @@ export default function DropdownMenuSetting() {
         <DropdownMenuItem>Добавить комментарий</DropdownMenuItem>
         <DropdownMenuItem>Посмотреть статитику</DropdownMenuItem>
         <DropdownMenuItem>Посмотреть историю</DropdownMenuItem>
-        <DropdownMenuItem>Удалить</DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() =>
+            removeExerciseMutation.mutate({ workoutId, exerciseId })
+          }
+        >
+          Удалить
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

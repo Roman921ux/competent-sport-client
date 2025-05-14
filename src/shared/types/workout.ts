@@ -1,30 +1,34 @@
+import { TExerciseDto } from "./exercise";
+
 // TExercise
-type TSet = {
+export type TSet = {
   weight: number;
-  repeat: string;
+  repeat: number;
   comment: string;
 };
-
-export type TExercise = {
-  title: string;
-  comment: string;
-  sets: TSet[];
-};
-
-export type TExerciseDto = TExercise & {
+export type TSetDto = TSet & {
   _id: string;
-  __v: number;
-  createdAt: string;
-  updatedAt: string;
 };
 
+export type TUserExercise = {
+  exerciseId: TExerciseDto;
+  comment: string;
+  sets: TSetDto[];
+};
+
+export type TUserExerciseDto = TUserExercise & {
+  _id: string;
+};
 // TWorkout
 export type TWorkout = {
   title: string;
-  exercises: TExercise[];
+  comment: string;
+  exercises: TUserExerciseDto[];
+  date: Date;
 };
 
 export type TWorkoutDto = TWorkout & {
+  userId: string;
   _id: string;
   __v: number;
   createdAt: string;

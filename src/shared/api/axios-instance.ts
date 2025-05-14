@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  // baseURL: "http://localhost:3000",
-  baseURL: "https://titan-forge-platform-server-7ef8.twc1.net/",
+  baseURL: "http://localhost:3000/api/v1",
+  // baseURL: "https://titan-forge-platform-server-7ef8.twc1.net/",
 });
 
 axiosInstance.interceptors.request.use((config) => {

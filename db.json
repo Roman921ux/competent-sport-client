@@ -1,11 +1,16 @@
 {
-  "noFap": {
-    "startDate": "2025-03-14T12:34:56.789Z",
-    "temptations": [
-      {
-        "id": 1,
-        "arrivalTime": "2025-03-14T12:34:56.789Z"
-      }
-    ]
-  }
+  "workouts": [
+    {
+      "id": "f5b1",
+      "date": "2025-04-07T11:02:31.426Z",
+      "title": "",
+      "exercises": []
+    },
+    {
+      "id": "d505",
+      "date": "2025-04-07T11:02:52.622Z",
+      "title": "",
+      "exercises": []
+    }
+  ]
 }

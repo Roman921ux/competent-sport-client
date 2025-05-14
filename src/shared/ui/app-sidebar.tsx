@@ -14,42 +14,38 @@ import {
   SidebarMenuSubItem,
   SidebarRail,
 } from "@/shared/shadcn-ui/components/ui/sidebar";
+import { NavLink } from "react-router-dom";
 
-// This is sample data.
+// {
+//   title: "Календарь тренировок",
+//   url: "/",
+//   items: [
+//     {
+//       title: "Календарь",
+//       url: "#",
+//     },
+//     {
+//       title: "Список упражнений",
+//       url: "#",
+//       isActive: true,
+//     },
+//     {
+//       title: "Статистика",
+//       url: "#",
+//     },
+//   ],
+// }
 const data = {
   navMain: [
     {
-      title: "Профиль",
-      url: "/",
-      items: [
-        {
-          title: "Моя статистика",
-          url: "#",
-        },
-        {
-          title: "Просмотры",
-          url: "#",
-        },
-      ],
-    },
-    {
       title: "Календарь тренировок",
       url: "/",
-      items: [
-        {
-          title: "Календарь",
-          url: "#",
-        },
-        {
-          title: "Список упражнений",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Статистика",
-          url: "#",
-        },
-      ],
+      items: [],
+    },
+    {
+      title: "Упражнения",
+      url: "/exercise",
+      items: [],
     },
   ],
 };
@@ -80,11 +76,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             {data.navMain.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
-                  <a href={item.url} className="font-medium">
+                  <NavLink to={item.url} className="font-medium">
                     {item.title}
-                  </a>
+                  </NavLink>
                 </SidebarMenuButton>
-                {item.items?.length ? (
+                {/* {item.items?.length ? (
                   <SidebarMenuSub>
                     {item.items.map((item) => (
                       <SidebarMenuSubItem key={item.title}>
@@ -94,7 +90,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       </SidebarMenuSubItem>
                     ))}
                   </SidebarMenuSub>
-                ) : null}
+                ) : null} */}
               </SidebarMenuItem>
             ))}
           </SidebarMenu>

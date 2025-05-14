@@ -1,4 +1,4 @@
-import { RegisterForm } from "@/features/auth/register-form";
+import { RegisterForm } from "@/features/auth";
 import { Toaster } from "@/shared/shadcn-ui/components/ui/sonner";
 
 export default function RegisterPage() {
