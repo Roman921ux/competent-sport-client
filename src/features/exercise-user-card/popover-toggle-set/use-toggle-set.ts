@@ -2,7 +2,7 @@ import { queryClient } from "@/shared/api/query-client";
 import { userExerciseApi } from "@/shared/api/user-exercise-api";
 import { TSetDto } from "@/shared/types/workout";
 import { useMutation } from "@tanstack/react-query";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 export default function useToggleSet({
   workoutId,
@@ -15,6 +15,25 @@ export default function useToggleSet({
   setId: string;
   set: TSetDto;
 }) {
+  // console.log("Render useToggleSet set -", set);
+  const [formData, setFormData] = useState<{
+    weight: number;
+    repeat: number;
+    comment: string;
+  }>({
+    weight: set.weight,
+    repeat: set.repeat,
+    comment: set.comment,
+  });
+
+  useEffect(() => {
+    setFormData({
+      weight: set.weight,
+      repeat: set.repeat,
+      comment: set.comment,
+    });
+  }, [set]);
+
   const toggleSetMutation = useMutation({
     mutationFn: ({
       workoutId,
@@ -41,17 +60,12 @@ export default function useToggleSet({
       queryClient.invalidateQueries({
         queryKey: ["choose-workout", workoutId],
       });
+      // setFormData({
+      //   weight: 0,
+      //   repeat: 0,
+      //   comment: "",
+      // });
     },
-  });
-
-  const [formData, setFormData] = useState<{
-    weight: number;
-    repeat: number;
-    comment: string;
-  }>({
-    weight: set.weight,
-    repeat: set.repeat,
-    comment: set.comment,
   });
 
   const handleChange = (

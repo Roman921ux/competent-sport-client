@@ -28,7 +28,10 @@ export function DialogCreateWorkout() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Создат тренировку</Button>
+        {/* <Button variant="outline">Создат тренировку</Button> */}
+        <button className="font-medium bg-primary/90 text-background hover:bg-primary/80 rounded-[30px] py-3 px-6 w-fit hover:text-background">
+          Создать тренировку
+        </button>
       </DialogTrigger>
       <DialogContent
         className="sm:max-w-[425px]"

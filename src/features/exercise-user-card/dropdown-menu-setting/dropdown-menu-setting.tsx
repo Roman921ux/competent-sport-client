@@ -9,14 +9,18 @@ import {
 } from "@/shared/shadcn-ui/components/ui/dropdown-menu";
 import { EllipsisVertical } from "lucide-react";
 import useSettingCard from "./use-setting-card";
+import { useNavigate } from "react-router-dom";
 
 export default function DropdownMenuSetting({
   workoutId,
   exerciseId,
+  statsExerciseId,
 }: {
   workoutId: string;
   exerciseId: string;
+  statsExerciseId: string;
 }) {
+  const navigate = useNavigate();
   const { removeExerciseMutation } = useSettingCard({ workoutId });
   return (
     <DropdownMenu>
@@ -32,9 +36,11 @@ export default function DropdownMenuSetting({
       <DropdownMenuContent>
         <DropdownMenuLabel>Настройки упражнения</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Добавить комментарий</DropdownMenuItem>
-        <DropdownMenuItem>Посмотреть статитику</DropdownMenuItem>
-        <DropdownMenuItem>Посмотреть историю</DropdownMenuItem>
+        {/* <DropdownMenuItem>Добавить комментарий</DropdownMenuItem> */}
+        <DropdownMenuItem onClick={() => navigate(`/stats/${statsExerciseId}`)}>
+          Посмотреть статитику
+        </DropdownMenuItem>
+        {/* <DropdownMenuItem>Посмотреть историю</DropdownMenuItem> */}
         <DropdownMenuItem
           onClick={() =>
             removeExerciseMutation.mutate({ workoutId, exerciseId })

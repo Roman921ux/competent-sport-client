@@ -35,11 +35,14 @@ export default function PopoverToggleSet({
   }) => ReactNode;
   children?: ReactNode;
 }) {
+  // console.log("set info - ", set);
   const [openPopover, setOpenPopover] = useState(false);
   const {
     formData,
     handlers: { handleChange, handleSubmit },
-  } = useToggleSet({ workoutId, exerciseId, setId, set });
+  } = useToggleSet({ workoutId, exerciseId, setId, set: set });
+
+  // useEffect(() => {}, [set, formData]);
 
   return (
     <Popover open={openPopover} onOpenChange={setOpenPopover}>

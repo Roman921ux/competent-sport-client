@@ -7,10 +7,10 @@ import { FormEvent, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useExercise from "./hooks/use-exercise";
 
-type TFormData = Omit<TExercise, "typeExercise" | "userCreateExerciseId">;
+type TFormData = Omit<TExercise, "userCreateExerciseId">;
 
-export default function CreateExercisePage() {
-  const { createMutation } = useExercise();
+export default function CreateExerciseUserPage() {
+  const { createUserMutation } = useExercise();
 
   const navigate = useNavigate();
   const { exerciseId } = useParams();
@@ -48,6 +48,7 @@ export default function CreateExercisePage() {
     title: findEditExerciseById?.title || "",
     description: findEditExerciseById?.description || "",
     muscleGroups: findEditExerciseById?.muscleGroups || [],
+    typeExercise: "communityExercise",
   });
 
   const handleAddMuscle = (muscle: string) => {
@@ -66,11 +67,17 @@ export default function CreateExercisePage() {
       muscleGroups: [...formData.muscleGroups, muscle],
     }));
   };
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      typeExercise: e.target.value as TFormData["typeExercise"],
+    }));
+  };
 
   const changeSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    createMutation.mutate(formData, {
+    createUserMutation.mutate(formData, {
       onSuccess: () => {
         navigate("/exercise", { replace: true });
       },
@@ -136,6 +143,17 @@ export default function CreateExercisePage() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <label>Тип упражнения</label>
+          <select
+            className="border rounded-[30px] py-3 px-6"
+            value={formData.typeExercise}
+            onChange={handleChange}
+          >
+            <option value="communityExercise">Комьюнити упражнение</option>
+            <option value="personalExercise">Личное упражение</option>
+          </select>
         </div>
       </div>
       {/* btn */}

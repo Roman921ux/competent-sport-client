@@ -9,9 +9,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
+  // SidebarMenuSub,
+  // SidebarMenuSubButton,
+  // SidebarMenuSubItem,
   SidebarRail,
 } from "@/shared/shadcn-ui/components/ui/sidebar";
 import { NavLink } from "react-router-dom";
@@ -38,13 +38,23 @@ import { NavLink } from "react-router-dom";
 const data = {
   navMain: [
     {
-      title: "Календарь тренировок",
+      title: "Календарь",
       url: "/",
       items: [],
     },
     {
       title: "Упражнения",
       url: "/exercise",
+      items: [],
+    },
+    {
+      title: "Тренера",
+      url: "/trainers",
+      items: [],
+    },
+    {
+      title: "Профиль",
+      url: "/profile",
       items: [],
     },
   ],
@@ -62,8 +72,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <GalleryVerticalEnd className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Documentation</span>
-                  <span className="">v0.0.1</span>
+                  <span className="font-semibold text-lg">Грамотный спорт</span>
+                  {/* <span className="">v0.0.1</span> */}
                 </div>
               </a>
             </SidebarMenuButton>
@@ -76,8 +86,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             {data.navMain.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
-                  <NavLink to={item.url} className="font-medium">
-                    {item.title}
+                  <NavLink to={item.url}>
+                    <span className="text-xl font-medium">{item.title}</span>
                   </NavLink>
                 </SidebarMenuButton>
                 {/* {item.items?.length ? (

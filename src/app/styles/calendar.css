@@ -114,3 +114,18 @@
 .fc-header-toolbar {
     display: none !important;
 }
+
+/* В вашем CSS-файле */
+/* .fc-event {
+    background-color: rgba(1, 1, 1, 0.05) !important;
+    border: none !important;
+    padding: 2px 12px !important;
+    border-radius: 5px !important;
+    color: inherit !important;
+}
+
+.fc-event-main {
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+} */

@@ -78,10 +78,10 @@ export function LoginForm({
           Войти
         </Button>
       </div>
-      <div className="text-center text-sm">
-        Еще не регистрировались?{" "}
+      <div className="flex flex-col text-center text-sm">
+        <span>Еще не регистрировались?</span>
         <a href="/register" className="underline underline-offset-4">
-          Создать аккаунт{" "}
+          Создать аккаунт
         </a>
       </div>
     </form>

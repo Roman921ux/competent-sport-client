@@ -7,9 +7,9 @@ import { X } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-type TFormData = Omit<TExercise, "typeExercise" | "userCreateExerciseId">;
+type TFormData = Omit<TExercise, "userCreateExerciseId">;
 
-export default function EditExercisePage() {
+export default function EditExerciseAdminPage() {
   const navigate = useNavigate();
   const { exerciseId } = useParams();
 
@@ -63,8 +63,15 @@ export default function EditExercisePage() {
     title: findEditExerciseById?.title || "",
     description: findEditExerciseById?.description || "",
     muscleGroups: findEditExerciseById?.muscleGroups || [],
+    typeExercise: findEditExerciseById?.typeExercise || "officialExercise",
   });
 
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      typeExercise: e.target.value as TFormData["typeExercise"],
+    }));
+  };
   const handleAddMuscle = (muscle: string) => {
     if (formData.muscleGroups.includes(muscle)) {
       const newMuscleGroups = formData.muscleGroups.filter(
@@ -145,6 +152,18 @@ export default function EditExercisePage() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <label>Тип упражнения</label>
+          <select
+            className="border rounded-[30px] py-3 px-6"
+            value={formData.typeExercise}
+            onChange={handleChange}
+          >
+            <option value="communityExercise">Комьюнити упражнение</option>
+            <option value="personalExercise">Личное упражение</option>
+            <option value="officialExercise">Официальное упражнение</option>
+          </select>
         </div>
       </div>
       {/* btn */}

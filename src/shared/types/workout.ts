@@ -11,7 +11,7 @@ export type TSetDto = TSet & {
 };
 
 export type TUserExercise = {
-  exerciseId: TExerciseDto;
+  exerciseId: TExerciseDto | undefined;
   comment: string;
   sets: TSetDto[];
 };

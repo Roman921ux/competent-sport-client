@@ -71,7 +71,6 @@ export default function Calendar({
           ▶
         </Button>
       </div>
-
       <FullCalendar
         ref={useCalendar?.fullCalendarRef}
         plugins={[dayGridPlugin, interactionPlugin]}
@@ -85,25 +84,25 @@ export default function Calendar({
         // }}
         // hiddenDays={[0, 6]}
         events={adaptWorkoutsForCalendar(workouts)}
-        eventContent={(arg) => (
-          <div
-            className="w-full max-w-40 overflow-hidden"
-            style={{
-              padding: "2px 12px",
-              background: "rgba(1,1,1, 0.05)",
-              borderRadius: "5px",
-            }}
-          >
-            {arg.event.title}
-          </div>
-        )}
+        // eventContent={(arg) => (
+        //   <div
+        //     className="w-full max-w-40 overflow-hidden"
+        //     style={{
+        //       padding: "2px 12px",
+        //       background: "rgba(1,1,1, 0.05)",
+        //       borderRadius: "5px",
+        //     }}
+        //   >
+        //     {arg.event.title}
+        //   </div>
+        // )}
         eventClick={(info) => {
           handleChangeWorkout(info.event.id);
         }}
         dateClick={(info) => {
           console.log("Дата клика:", info.dateStr);
         }}
-      />
+      />{" "}
     </div>
   );
 }

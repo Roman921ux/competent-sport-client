@@ -6,11 +6,8 @@ import {
   SidebarTrigger,
 } from "@/shared/shadcn-ui/components/ui/sidebar";
 import { Outlet } from "react-router-dom";
-import { Button } from "@/shared/shadcn-ui/components/ui/button";
-import { useAuthContext } from "@/app/providers/auth-context-provider";
 
 export default function AppLayout() {
-  const authContext = useAuthContext();
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -33,9 +30,9 @@ export default function AppLayout() {
               </BreadcrumbList>
             </Breadcrumb> */}
           </div>
-          <Button className="mr-4" onClick={() => authContext?.logOut()}>
+          {/* <Button className="mr-4" onClick={() => authContext?.logOut()}>
             Выйти
-          </Button>
+          </Button> */}
         </header>
         <div className="p-8">
           <Outlet />

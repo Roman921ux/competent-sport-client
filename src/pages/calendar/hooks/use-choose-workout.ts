@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function useChooseWorkout() {
   const [workoutId, setWorkoutId] = useState<string | null>(null);
 
-  const { data: chooseWorkout } = useQuery({
+  const { data: chooseWorkout, refetch } = useQuery({
     queryKey: ["choose-workout", workoutId as string],
     queryFn: userWorkoutApi.chooseUserWorkout,
     enabled: workoutId !== null,
@@ -15,7 +15,7 @@ export default function useChooseWorkout() {
   // handlers
   const handleChangeWorkout = (newWorkoutId: string) => {
     setWorkoutId(newWorkoutId);
-    // refetch();
+    refetch();
   };
   return { chooseWorkout, handleChangeWorkout };
 }
